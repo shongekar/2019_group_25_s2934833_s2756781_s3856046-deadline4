@@ -1,0 +1,22 @@
+
+.tableWrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.productTable {
+    width: 70%;
+    table-layout: fixed;
+    margin:1rem 0;
+}
+.productTable > thead > tr > th {
+    text-align: center;
+    padding: 1rem;
+    border: none;
+}
+.productTable > tbody > tr > td {
+    padding: 1rem;
+    border: 1px solid #ccc;
+}

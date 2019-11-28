@@ -3,15 +3,28 @@
            (click)="getProducts()">
    Show me products!
   </button>
-  <h2>Products: </h2>
-  <div *ngFor="let product of products">
+  <div class="tableWrapper" *ngIf="showProducts">
+      <table  class="productTable">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Bid Value</th>
+              <th>Timestamp</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products">
+              <td>{{product.product}}</td>
+              <td>
+                <input type="text" value="product.bidValue" [(ngModel)]="product.bidValue" [ngModelOptions]="{standalone: true}">
+              </td>
+              <td>
+                <input type="text" value="product.timestamp" [(ngModel)]="product.timestamp" [ngModelOptions]="{standalone: true}">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  <button type="button" class="btn btn-info" (click)="updateRecord()">Submit</button>  
 
-    <h3>
-      <a [routerLink]="['/product', product.id]">{{ product.name }}</a>
-    </h3>
-
-    <!--  <button (click)="bid(product.id, )">-->
-    <!--  Bid-->
-    <!--  </button>-->
   </div>
 </div>

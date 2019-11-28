@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import {Settings} from './settings';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ProductsService {
   settings;
   http;
@@ -13,7 +12,7 @@ export class ProductsService {
     this.settings = new Settings();
   }
 
-  requestProducts() {
+  public requestProducts(): Observable<any> {
     const url: string = 'http://' + this.settings.defaultUrl + '/api/products';
     return this.http.get(url);
   }
